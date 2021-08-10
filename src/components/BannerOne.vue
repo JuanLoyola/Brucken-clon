@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="container-vignete">
-      <h1 class="title">Brücken</h1>
+      <h1 class="title"><span>Brücken</span></h1>
       <a href="#" class="btn">Conocer más</a>
     </div>
   </div>
@@ -40,6 +40,64 @@ export default {
       font-size: 5rem;
       color: #fff;
       margin-bottom: 30px;
+      display: inline-block;
+      overflow: hidden;
+      clear: both;
+      position: relative;
+    }
+
+    .title span {
+      color: transparent;
+      -webkit-animation: show 0s forwards 0.4s;
+      animation: show 0s forwards 0.4s;
+    }
+    .title:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: white;
+      -webkit-transform: translate3d(110%, 0, 0);
+      transform: translate3d(110%, 0, 0);
+      -webkit-animation: left-to-right 1s cubic-bezier(.17,.67,.83,.67);
+      animation: left-to-right 1s cubic-bezier(.17,.67,.83,.67);
+    }
+
+    @-webkit-keyframes show {
+      0% {
+        color: transparent;
+      }
+      100% {
+        color: white;
+      }
+    }
+    @keyframes show {
+      0% {
+        color: transparent;
+      }
+      100% {
+        color: white;
+      }
+    }
+
+    /* Left-to-right animation */
+    @-webkit-keyframes left-to-right {
+      0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+      }
+      100% {
+        -webkit-transform: translate3d(110%, 0, 0);
+      }
+    }
+    @keyframes left-to-right {
+      0% {
+        transform: translate3d(-100%, 0, 0);
+      }
+      100% {
+        transform: translate3d(110%, 0, 0);
+      }
     }
 
     .btn {
